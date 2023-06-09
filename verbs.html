@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Неправильные глаголы английского языка</title>
+    <link rel="shortcut icon" href="/images/english.png" type="image/png">
+</head>
+<body>
+    <header class="header">
+        <div class="header__info-top">
+            <div class="info-top__flag">
+                <img class="flag__img" src="images/english.png">
+            </div>
+            <div class="info-top__words">
+                <p class="info-top__words_style">Irregular Verbs</p>
+            </div>
+            <div class="info-top__bookmark-blue">
+                <img class="info-top__bookmark-blue_style" src="icons/bookmark_blue.png">
+            </div>
+        </div>
+        <div class="header__content">
+            <div class="content__left">
+                <p class="left__glav-title">Сервис изучения английского языка</p>
+                <p class="left__title">Быстрое изучение<br>неправильных<br>глаголов</p>
+            </div>
+            <div class="content__right-image">
+                <img class="content__right-image_style" src="images/dog.png" >
+            </div>
+        </div>
+    </header>
+        <main class="main">
+            <div class="main__title">
+                <div class="title__block-for-title">
+                    <p class="title__block-for-title_style-p">Неправильные глаголы английского языка</p>
+                </div>
+                
+                    <img class="title__img"src="icons/bus.png">
+            </div>
+            <div class="main__verbs">
+                <div class="verbs__backindex">
+                    <img class="verbs__backindex_background" src="icons/bookmark_blue_left.png" >
+                    <a href="index.html"class="verbs__backindex_textstyle">Вернуться к тренажеру</a>
+                </div>
+                <div class="verbs__filter">
+                    <p class="filter__text">Показать только выученные слова</p>
+                    <div class="filter__switch">
+                      <div class="switch__background">
+                        <div class="switch__round"></div>
+                      </div>  
+                    </div>
+                </div>
+                <div class="main__verbs-table">
+                    <table class="verbs-table__create-table">
+                        <tr class="create-table__tr_style">
+                            <td class="create-table__td_style-white"><b>I форма</b></td>
+                            <td class="create-table__td_style-white"><b>II форма</b></td>
+                            <td class="create-table__td_style-white"><b>III форма</b></td>
+                            <td class="create-table__td_style-white"><b>Перевод</b></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+                  
+        </main>
+        <footer class="footer">
+            <div class="footer__copyright">
+                <p class="footer__copyright_style">© 2022 Кабакова Д. А. Все права защищены</p>
+            </div>
+            
+        </footer>
+        <script >
+            'use strict'
+           
+            window.addEventListener("load", function() {
+
+            function switchToggle(){
+            let button = document.querySelector('.verbs__filter');
+            let round = document.querySelector('.switch__round');
+            let background = document.querySelector('.switch__background');
+            
+            background.addEventListener('click', function(){
+            round.classList.toggle('switch__round_on'); 
+            background.classList.toggle('switch__background_on'); 
+             });
+            };
+
+            function createTable(){
+                let masVerbs=[
+                    {
+                        form1:'have',
+                        form2:'has',
+                        form3:'were',
+                        translate:'Иметь',
+                    },
+                    {
+                        form1:'be',
+                        form2:'was/were',
+                        form3:'been',
+                        translate:'Быть',
+                    },
+                    {
+                        form1:'become',
+                        form2:'became',
+                        form3:'become',
+                        translate:'Становиться',
+                    },
+                    {
+                        form1:'begin',
+                        form2:'began',
+                        form3:'begun',
+                        translate:'Начинать',
+                    },
+                    {
+                        form1:'have',
+                        form2:'has',
+                        form3:'were',
+                        translate:'Иметь',
+                    },
+                    {
+                        form1:'have',
+                        form2:'has',
+                        form3:'were',
+                        translate:'Иметь',
+                    }
+
+                ];
+                let table = document.querySelector('.verbs-table__create-table');
+                
+                for (let i=0;i<masVerbs.length;i++){
+                let tr = document.createElement('tr');                               
+                table.appendChild(tr);
+
+                let tdForm1=document.createElement('td');
+                let tdForm2=document.createElement('td');
+                let tdForm3=document.createElement('td');
+                let tdTranslate=document.createElement('td');
+                    if (i%2!=0){
+                        tdForm1.classList.add('create-table__td_style-white'); 
+                        tdForm2.classList.add('create-table__td_style-white');
+                        tdForm3.classList.add('create-table__td_style-white');
+                        tdTranslate.classList.add('create-table__td_style-white');
+                    } else {
+                        tdForm1.classList.add('create-table__td_style-blue'); 
+                        tdForm2.classList.add('create-table__td_style-blue');
+                        tdForm3.classList.add('create-table__td_style-blue');
+                        tdTranslate.classList.add('create-table__td_style-blue');
+                    }
+                tdForm1.innerHTML=masVerbs[i].form1;
+                tdForm2.innerHTML=masVerbs[i].form2;
+                tdForm3.innerHTML=masVerbs[i].form3;
+                tdTranslate.innerHTML=masVerbs[i].translate;
+
+                tr.appendChild(tdForm1);
+                tr.appendChild(tdForm2);
+                tr.appendChild(tdForm3);
+                tr.appendChild(tdTranslate);
+                }
+
+            }
+            switchToggle();
+            createTable()
+                });
+            
+        </script>
+</body>
+</html>
